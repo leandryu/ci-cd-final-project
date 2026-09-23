@@ -1,0 +1,135 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: cleanup
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: clean-workspace
+      image: registry.access.redhat.com/ubi8/ubi-minimal:latest
+      script: |
+        #!/usr/bin/env bash
+        set -euo pipefail
+        rm -rf "$(workspaces.source.path)"/*
+        echo "Workspace cleaned successfully"
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: git-clone
+spec:
+  params:
+    - name: url
+      type: string
+    - name: revision
+      type: string
+      default: main
+  workspaces:
+    - name: output
+  steps:
+    - name: git-clone
+      image: alpine/git:latest
+      workingDir: $(workspaces.output.path)
+      script: |
+        #!/usr/bin/env sh
+        set -e
+        git clone --branch "$(params.revision)" "$(params.url)" .
+        echo "Repository cloned successfully"
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: lint
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: lint-with-eslint
+      image: node:20-alpine
+      workingDir: $(workspaces.source.path)
+      script: |
+        #!/usr/bin/env sh
+        set -e
+        npm ci
+        npm run lint
+        echo "Lint with ESLint finished successfully"
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: unit-test
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: run-unit-tests-jest
+      image: node:20-alpine
+      workingDir: $(workspaces.source.path)
+      script: |
+        #!/usr/bin/env sh
+        set -e
+        npm ci
+        npm test
+        echo "Unit tests (Jest) finished successfully"
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: buildah
+spec:
+  params:
+    - name: IMAGE
+      type: string
+    - name: REGISTRY_USERNAME
+      type: string
+    - name: REGISTRY_PASSWORD
+      type: string
+    - name: TLSVERIFY
+      type: string
+      default: "false"
+  workspaces:
+    - name: source
+  steps:
+    - name: buildah-build-and-push
+      image: quay.io/buildah/stable:latest
+      workingDir: $(workspaces.source.path)
+      securityContext:
+        privileged: true
+      script: |
+        #!/usr/bin/env bash
+        set -euo pipefail
+        buildah bud \
+          --storage-driver=vfs \
+          --tls-verify="$(params.TLSVERIFY)" \
+          --layers \
+          -t "$(params.IMAGE)" .
+        buildah push \
+          --storage-driver=vfs \
+          --tls-verify="$(params.TLSVERIFY)" \
+          --creds "$(params.REGISTRY_USERNAME):$(params.REGISTRY_PASSWORD)" \
+          "$(params.IMAGE)"
+        echo "Image built and pushed successfully"
+  volumes:
+    - name: varlibcontainers
+      emptyDir: {}
+  stepTemplate:
+    volumeMounts:
+      - name: varlibcontainers
+        mountPath: /var/lib/containers
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: openshift-client
+spec:
+  params:
+    - name: SCRIPT
+      type: string
+  workspaces:
+    - name: source
+  steps:
+    - name: openshift-client-deploy
+      image: quay.io/openshift/origin-cli:latest
+      workingDir: $(workspaces.source.path)
+      script: $(params.SCRIPT)

@@ -1,0 +1,87 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: oc-pipelines
+spec:
+  workspaces:
+    - name: source
+  params:
+    - name: git-url
+      type: string
+      default: "https://github.com/leandryu/ci-cd-final-project.git"
+    - name: git-revision
+      type: string
+      default: main
+    - name: image
+      type: string
+    - name: registry-username
+      type: string
+    - name: registry-password
+      type: string
+  tasks:
+    - name: cleanup
+      taskRef:
+        name: cleanup
+      workspaces:
+        - name: source
+          workspace: source
+
+    - name: git-clone
+      runAfter: [cleanup]
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: $(params.git-url)
+        - name: revision
+          value: $(params.git-revision)
+      workspaces:
+        - name: output
+          workspace: source
+
+    - name: lint
+      runAfter: [git-clone]
+      taskRef:
+        name: lint
+      workspaces:
+        - name: source
+          workspace: source
+
+    - name: unit-test
+      runAfter: [lint]
+      taskRef:
+        name: unit-test
+      workspaces:
+        - name: source
+          workspace: source
+
+    - name: buildah
+      runAfter: [unit-test]
+      taskRef:
+        name: buildah
+      params:
+        - name: IMAGE
+          value: $(params.image)
+        - name: REGISTRY_USERNAME
+          value: $(params.registry-username)
+        - name: REGISTRY_PASSWORD
+          value: $(params.registry-password)
+      workspaces:
+        - name: source
+          workspace: source
+
+    - name: deploy
+      runAfter: [buildah]
+      taskRef:
+        name: openshift-client
+      params:
+        - name: SCRIPT
+          value: |
+            NAMESPACE=$(oc project -q)
+            sed -i "s|<NAMESPACE>|$NAMESPACE|g" deploy.yaml
+            oc apply -f deploy.yaml
+            oc rollout status deployment/counter-service --timeout=180s
+            oc get pods -l app=counter-service
+      workspaces:
+        - name: source
+          workspace: source
