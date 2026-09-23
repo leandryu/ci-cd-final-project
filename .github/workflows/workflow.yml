@@ -1,3 +1,4 @@
+
 name: CI workflow
 
 on:
@@ -20,3 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Lint with ESLint
+        run: npm run lint
