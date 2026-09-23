@@ -1,4 +1,3 @@
-
 name: CI workflow
 
 on:
@@ -24,3 +23,6 @@ jobs:
 
       - name: Lint with ESLint
         run: npm run lint
+
+      - name: Run unit tests with Jest
+        run: npm test
