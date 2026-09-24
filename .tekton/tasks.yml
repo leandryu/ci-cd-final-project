@@ -1,4 +1,3 @@
----
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -21,16 +20,9 @@ spec:
         #!/usr/bin/env sh
         set -eu
         echo "Removing all files from ${WORKSPACE_SOURCE_PATH} ..."
-        # Delete any existing contents of the directory if it exists.
-        #
-        # We don't just "rm -rf ${WORKSPACE_SOURCE_PATH}" because ${WORKSPACE_SOURCE_PATH} might be "/"
-        # or the root of a mounted volume.
         if [ -d "${WORKSPACE_SOURCE_PATH}" ] ; then
-          # Delete non-hidden files and directories
           rm -rf "${WORKSPACE_SOURCE_PATH:?}"/*
-          # Delete files and directories starting with . but excluding ..
           rm -rf "${WORKSPACE_SOURCE_PATH}"/.[!.]*
-          # Delete files and directories starting with .. plus any other character
           rm -rf "${WORKSPACE_SOURCE_PATH}"/..?*
         fi
 
@@ -152,45 +144,74 @@ kind: Task
 metadata:
   name: buildah
 spec:
+  workspaces:
+    - name: source
+
   params:
     - name: IMAGE
       type: string
-    - name: REGISTRY_USERNAME
-      type: string
-    - name: REGISTRY_PASSWORD
-      type: string
-    - name: TLSVERIFY
-      type: string
-      default: "false"
-  workspaces:
-    - name: source
+
   steps:
-    - name: buildah-build-and-push
-      image: quay.io/buildah/stable:latest
+    - name: build-and-push
+      image: quay.io/openshift/origin-cli:latest
       workingDir: $(workspaces.source.path)
-      securityContext:
-        privileged: true
+      env:
+        - name: BUILD_NAMESPACE
+          value: "$(context.taskRun.namespace)"
       script: |
-        #!/usr/bin/env bash
-        set -euo pipefail
-        buildah bud \
-          --storage-driver=vfs \
-          --tls-verify="$(params.TLSVERIFY)" \
-          --layers \
-          -t "$(params.IMAGE)" .
-        buildah push \
-          --storage-driver=vfs \
-          --tls-verify="$(params.TLSVERIFY)" \
-          --creds "$(params.REGISTRY_USERNAME):$(params.REGISTRY_PASSWORD)" \
-          "$(params.IMAGE)"
-        echo "Image built and pushed successfully"
-  volumes:
-    - name: varlibcontainers
-      emptyDir: {}
-  stepTemplate:
-    volumeMounts:
-      - name: varlibcontainers
-        mountPath: /var/lib/containers
+        #!/bin/sh
+        set -eu
+
+        BUILD_NAME="counter-service-tekton"
+        IMAGE_NAME="$(echo "$(params.IMAGE)" | sed 's|.*/||')"
+
+        echo "========================================="
+        echo "OpenShift Docker Build"
+        echo "Namespace: ${BUILD_NAMESPACE}"
+        echo "Image: $(params.IMAGE)"
+        echo "ImageStreamTag: ${IMAGE_NAME}"
+        echo "========================================="
+
+        echo "Checking source workspace..."
+        pwd
+        echo "Workspace contents:"
+        ls -la
+
+        if [ ! -f "Dockerfile" ]; then
+          echo "ERROR: Dockerfile was not found in the Tekton workspace."
+          exit 1
+        fi
+
+        echo "Dockerfile found successfully."
+
+        echo "Removing previous BuildConfig if it exists..."
+        oc delete bc "${BUILD_NAME}" \
+          -n "${BUILD_NAMESPACE}" \
+          --ignore-not-found=true
+
+        echo "Creating BuildConfig..."
+        oc new-build \
+          --name="${BUILD_NAME}" \
+          --strategy=docker \
+          --binary=true \
+          --to="${IMAGE_NAME}" \
+          -n "${BUILD_NAMESPACE}"
+
+        echo "Starting binary build from Tekton workspace..."
+        oc start-build "${BUILD_NAME}" \
+          --from-dir="$(workspaces.source.path)" \
+          --follow \
+          -n "${BUILD_NAMESPACE}"
+
+        echo "Checking build status..."
+        oc get buildconfig "${BUILD_NAME}" \
+          -n "${BUILD_NAMESPACE}"
+
+        echo "Checking generated image..."
+        oc get istag "${IMAGE_NAME}" \
+        -n "${BUILD_NAMESPACE}"
+
+        echo "Build and push completed successfully."
 
 ---
 apiVersion: tekton.dev/v1

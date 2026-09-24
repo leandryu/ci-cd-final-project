@@ -39,24 +39,27 @@ spec:
         - name: output
           workspace: source
 
-    - name: lint
+    - name: eslint
       runAfter: [git-clone]
       taskRef:
-        name: lint
+        name: eslint
+      params:
+        - name: args
+          value: ""
       workspaces:
         - name: source
           workspace: source
 
-    - name: unit-test
-      runAfter: [lint]
+    - name: jest-test
+      runAfter: [eslint]
       taskRef:
-        name: unit-test
+        name: jest-test
       workspaces:
         - name: source
           workspace: source
 
     - name: buildah
-      runAfter: [unit-test]
+      runAfter: [jest-test]
       taskRef:
         name: buildah
       params:
@@ -77,11 +80,39 @@ spec:
       params:
         - name: SCRIPT
           value: |
-            NAMESPACE=$(oc project -q)
-            sed -i "s|<NAMESPACE>|$NAMESPACE|g" deploy.yaml
-            oc apply -f deploy.yaml
-            oc rollout status deployment/counter-service --timeout=180s
-            oc get pods -l app=counter-service
+            #!/bin/sh
+            set -eu
+
+            NAMESPACE="$(context.taskRun.namespace)"
+
+            echo "========================================="
+            echo "OpenShift Deployment"
+            echo "Namespace: ${NAMESPACE}"
+            echo "Application: counter-service"
+            echo "Image: $(params.image)"
+            echo "========================================="
+
+            echo "Creating/updating deployment..."
+
+            oc -n "${NAMESPACE}" create deployment counter-service \
+              --image="$(params.image)" \
+              --dry-run=client \
+              -o yaml | oc -n "${NAMESPACE}" apply -f -
+
+            echo "Waiting for rollout..."
+
+            oc -n "${NAMESPACE}" rollout status deployment/counter-service \
+              --timeout=180s
+
+            echo "Deployment status:"
+
+            oc -n "${NAMESPACE}" get deployment counter-service
+
+            echo "Pods:"
+
+            oc -n "${NAMESPACE}" get pods -l app=counter-service
+
+            echo "Deployment completed successfully."
       workspaces:
         - name: source
           workspace: source
