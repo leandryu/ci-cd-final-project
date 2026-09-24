@@ -1,0 +1,379 @@
+build	Set up job	﻿2026-09-24T19:12:33.0579876Z Current runner version: '2.337.0'
+build	Set up job	2026-09-24T19:12:33.0601788Z ##[group]Runner Image Provisioner
+build	Set up job	2026-09-24T19:12:33.0602597Z Hosted Compute Agent
+build	Set up job	2026-09-24T19:12:33.0603112Z Version: 20260828.587
+build	Set up job	2026-09-24T19:12:33.0603689Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+build	Set up job	2026-09-24T19:12:33.0604338Z Build Date: 2026-08-28T16:44:25Z
+build	Set up job	2026-09-24T19:12:33.0604898Z Worker ID: {ec815025-b2e9-445e-863e-ed73ca51f698}
+build	Set up job	2026-09-24T19:12:33.0605520Z Azure Region: westus3
+build	Set up job	2026-09-24T19:12:33.0605992Z ##[endgroup]
+build	Set up job	2026-09-24T19:12:33.0607145Z ##[group]Operating System
+build	Set up job	2026-09-24T19:12:33.0607727Z Ubuntu
+build	Set up job	2026-09-24T19:12:33.0608169Z 24.04.5
+build	Set up job	2026-09-24T19:12:33.0608615Z LTS
+build	Set up job	2026-09-24T19:12:33.0609091Z ##[endgroup]
+build	Set up job	2026-09-24T19:12:33.0609607Z ##[group]Runner Image
+build	Set up job	2026-09-24T19:12:33.0610304Z Image: ubuntu-24.04
+build	Set up job	2026-09-24T19:12:33.0610768Z Version: 20260920.314.1
+build	Set up job	2026-09-24T19:12:33.0611655Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+build	Set up job	2026-09-24T19:12:33.0613074Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+build	Set up job	2026-09-24T19:12:33.0613911Z ##[endgroup]
+build	Set up job	2026-09-24T19:12:33.0614857Z ##[group]GITHUB_TOKEN Permissions
+build	Set up job	2026-09-24T19:12:33.0616930Z Contents: read
+build	Set up job	2026-09-24T19:12:33.0617458Z Metadata: read
+build	Set up job	2026-09-24T19:12:33.0617969Z Packages: read
+build	Set up job	2026-09-24T19:12:33.0618474Z ##[endgroup]
+build	Set up job	2026-09-24T19:12:33.0620318Z Secret source: Actions
+build	Set up job	2026-09-24T19:12:33.0621172Z Cache mode: write
+build	Set up job	2026-09-24T19:12:33.0621760Z Prepare workflow directory
+build	Set up job	2026-09-24T19:12:33.0882647Z Prepare all required actions
+build	Set up job	2026-09-24T19:12:33.0937072Z Getting action download info
+build	Set up job	2026-09-24T19:12:33.4246882Z Download action repository 'actions/checkout@v3' (SHA:a37ce9120846195fa4ece8f58b268e6043cb2f26)
+build	Set up job	2026-09-24T19:12:33.5683316Z Download action repository 'actions/setup-node@v3' (SHA:3235b876344d2a9aa001b8d1453c930bba69e610)
+build	Set up job	2026-09-24T19:12:34.0289955Z Complete job name: build
+build	Checkout	﻿2026-09-24T19:12:34.0909460Z ##[group]Run actions/checkout@v3
+build	Checkout	2026-09-24T19:12:34.0910397Z with:
+build	Checkout	2026-09-24T19:12:34.0910797Z   repository: leandryu/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:34.0913915Z   token: ***
+build	Checkout	2026-09-24T19:12:34.0914273Z   ssh-strict: true
+build	Checkout	2026-09-24T19:12:34.0914647Z   persist-credentials: true
+build	Checkout	2026-09-24T19:12:34.0915048Z   clean: true
+build	Checkout	2026-09-24T19:12:34.0915406Z   sparse-checkout-cone-mode: true
+build	Checkout	2026-09-24T19:12:34.0915823Z   fetch-depth: 1
+build	Checkout	2026-09-24T19:12:34.0916174Z   fetch-tags: false
+build	Checkout	2026-09-24T19:12:34.0916539Z   lfs: false
+build	Checkout	2026-09-24T19:12:34.0916880Z   submodules: false
+build	Checkout	2026-09-24T19:12:34.0917238Z   set-safe-directory: true
+build	Checkout	2026-09-24T19:12:34.0917646Z   allow-unsafe-pr-checkout: false
+build	Checkout	2026-09-24T19:12:34.0918271Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:34.1560606Z (node:1927) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Checkout	2026-09-24T19:12:34.1562368Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	Checkout	2026-09-24T19:12:34.1635591Z Syncing repository: leandryu/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:34.1637416Z ##[group]Getting Git version info
+build	Checkout	2026-09-24T19:12:34.1638097Z Working directory is '/home/runner/work/ci-cd-final-project/ci-cd-final-project'
+build	Checkout	2026-09-24T19:12:34.1639093Z [command]/usr/bin/git version
+build	Checkout	2026-09-24T19:12:34.1664650Z git version 2.55.0
+build	Checkout	2026-09-24T19:12:34.1680484Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:34.1691868Z Temporarily overriding HOME='/home/runner/work/_temp/c8259402-8d7c-46f1-b708-fd7d0cde9646' before making global git config changes
+build	Checkout	2026-09-24T19:12:34.1693016Z Adding repository directory to the temporary git global config as a safe directory
+build	Checkout	2026-09-24T19:12:34.1694848Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ci-cd-final-project/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:34.1734590Z Deleting the contents of '/home/runner/work/ci-cd-final-project/ci-cd-final-project'
+build	Checkout	2026-09-24T19:12:34.1737708Z ##[group]Initializing the repository
+build	Checkout	2026-09-24T19:12:34.1740828Z [command]/usr/bin/git init /home/runner/work/ci-cd-final-project/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:34.1814153Z hint: Using 'master' as the name for the initial branch. This default branch name
+build	Checkout	2026-09-24T19:12:34.1815111Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build	Checkout	2026-09-24T19:12:34.1816070Z hint: to use in all of your new repositories, which will suppress this warning,
+build	Checkout	2026-09-24T19:12:34.1816941Z hint: call:
+build	Checkout	2026-09-24T19:12:34.1817323Z hint:
+build	Checkout	2026-09-24T19:12:34.1817960Z hint: 	git config --global init.defaultBranch <name>
+build	Checkout	2026-09-24T19:12:34.1818686Z hint:
+build	Checkout	2026-09-24T19:12:34.1819407Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build	Checkout	2026-09-24T19:12:34.1820803Z hint: 'development'. The just-created branch can be renamed via this command:
+build	Checkout	2026-09-24T19:12:34.1821732Z hint:
+build	Checkout	2026-09-24T19:12:34.1822244Z hint: 	git branch -m <name>
+build	Checkout	2026-09-24T19:12:34.1822691Z hint:
+build	Checkout	2026-09-24T19:12:34.1823183Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build	Checkout	2026-09-24T19:12:34.1824312Z Initialized empty Git repository in /home/runner/work/ci-cd-final-project/ci-cd-final-project/.git/
+build	Checkout	2026-09-24T19:12:34.1825858Z [command]/usr/bin/git remote add origin https://github.com/leandryu/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:34.1990901Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:34.1991683Z ##[group]Disabling automatic garbage collection
+build	Checkout	2026-09-24T19:12:34.1993104Z [command]/usr/bin/git config --local gc.auto 0
+build	Checkout	2026-09-24T19:12:34.2022144Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:34.2023138Z ##[group]Setting up auth
+build	Checkout	2026-09-24T19:12:34.2026463Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Checkout	2026-09-24T19:12:34.2052377Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Checkout	2026-09-24T19:12:34.3812763Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Checkout	2026-09-24T19:12:34.3837541Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Checkout	2026-09-24T19:12:34.4031059Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build	Checkout	2026-09-24T19:12:34.4063002Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:34.4063971Z ##[group]Fetching the repository
+build	Checkout	2026-09-24T19:12:34.4069241Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +ce0a64fa1b22b5fd9e2b96926b33a3a2455371a3:refs/remotes/origin/main
+build	Checkout	2026-09-24T19:12:34.9362215Z remote: Enumerating objects: 35, done.        
+build	Checkout	2026-09-24T19:12:34.9364098Z remote: Counting objects:   2% (1/35)        
+build	Checkout	2026-09-24T19:12:34.9365305Z remote: Counting objects:   5% (2/35)        
+build	Checkout	2026-09-24T19:12:34.9366463Z remote: Counting objects:   8% (3/35)        
+build	Checkout	2026-09-24T19:12:34.9367622Z remote: Counting objects:  11% (4/35)        
+build	Checkout	2026-09-24T19:12:34.9368805Z remote: Counting objects:  14% (5/35)        
+build	Checkout	2026-09-24T19:12:34.9369941Z remote: Counting objects:  17% (6/35)        
+build	Checkout	2026-09-24T19:12:34.9371285Z remote: Counting objects:  20% (7/35)        
+build	Checkout	2026-09-24T19:12:34.9372421Z remote: Counting objects:  22% (8/35)        
+build	Checkout	2026-09-24T19:12:34.9373554Z remote: Counting objects:  25% (9/35)        
+build	Checkout	2026-09-24T19:12:34.9374771Z remote: Counting objects:  28% (10/35)        
+build	Checkout	2026-09-24T19:12:34.9375973Z remote: Counting objects:  31% (11/35)        
+build	Checkout	2026-09-24T19:12:34.9377219Z remote: Counting objects:  34% (12/35)        
+build	Checkout	2026-09-24T19:12:34.9378473Z remote: Counting objects:  37% (13/35)        
+build	Checkout	2026-09-24T19:12:34.9379850Z remote: Counting objects:  40% (14/35)        
+build	Checkout	2026-09-24T19:12:34.9381262Z remote: Counting objects:  42% (15/35)        
+build	Checkout	2026-09-24T19:12:34.9382550Z remote: Counting objects:  45% (16/35)        
+build	Checkout	2026-09-24T19:12:34.9383842Z remote: Counting objects:  48% (17/35)        
+build	Checkout	2026-09-24T19:12:34.9385141Z remote: Counting objects:  51% (18/35)        
+build	Checkout	2026-09-24T19:12:34.9386645Z remote: Counting objects:  54% (19/35)        
+build	Checkout	2026-09-24T19:12:34.9387931Z remote: Counting objects:  57% (20/35)        
+build	Checkout	2026-09-24T19:12:34.9389364Z remote: Counting objects:  60% (21/35)        
+build	Checkout	2026-09-24T19:12:34.9391099Z remote: Counting objects:  62% (22/35)        
+build	Checkout	2026-09-24T19:12:34.9392242Z remote: Counting objects:  65% (23/35)        
+build	Checkout	2026-09-24T19:12:34.9393357Z remote: Counting objects:  68% (24/35)        
+build	Checkout	2026-09-24T19:12:34.9394466Z remote: Counting objects:  71% (25/35)        
+build	Checkout	2026-09-24T19:12:34.9395567Z remote: Counting objects:  74% (26/35)        
+build	Checkout	2026-09-24T19:12:34.9396822Z remote: Counting objects:  77% (27/35)        
+build	Checkout	2026-09-24T19:12:34.9398020Z remote: Counting objects:  80% (28/35)        
+build	Checkout	2026-09-24T19:12:34.9399290Z remote: Counting objects:  82% (29/35)        
+build	Checkout	2026-09-24T19:12:34.9400720Z remote: Counting objects:  85% (30/35)        
+build	Checkout	2026-09-24T19:12:34.9401916Z remote: Counting objects:  88% (31/35)        
+build	Checkout	2026-09-24T19:12:34.9403127Z remote: Counting objects:  91% (32/35)        
+build	Checkout	2026-09-24T19:12:34.9404320Z remote: Counting objects:  94% (33/35)        
+build	Checkout	2026-09-24T19:12:34.9405507Z remote: Counting objects:  97% (34/35)        
+build	Checkout	2026-09-24T19:12:34.9406697Z remote: Counting objects: 100% (35/35)        
+build	Checkout	2026-09-24T19:12:34.9407933Z remote: Counting objects: 100% (35/35), done.        
+build	Checkout	2026-09-24T19:12:34.9409246Z remote: Compressing objects:   3% (1/28)        
+build	Checkout	2026-09-24T19:12:34.9410710Z remote: Compressing objects:   7% (2/28)        
+build	Checkout	2026-09-24T19:12:34.9412024Z remote: Compressing objects:  10% (3/28)        
+build	Checkout	2026-09-24T19:12:34.9413355Z remote: Compressing objects:  14% (4/28)        
+build	Checkout	2026-09-24T19:12:34.9414700Z remote: Compressing objects:  17% (5/28)        
+build	Checkout	2026-09-24T19:12:34.9415994Z remote: Compressing objects:  21% (6/28)        
+build	Checkout	2026-09-24T19:12:34.9417240Z remote: Compressing objects:  25% (7/28)        
+build	Checkout	2026-09-24T19:12:34.9418466Z remote: Compressing objects:  28% (8/28)        
+build	Checkout	2026-09-24T19:12:34.9419907Z remote: Compressing objects:  32% (9/28)        
+build	Checkout	2026-09-24T19:12:34.9421334Z remote: Compressing objects:  35% (10/28)        
+build	Checkout	2026-09-24T19:12:34.9422591Z remote: Compressing objects:  39% (11/28)        
+build	Checkout	2026-09-24T19:12:34.9423834Z remote: Compressing objects:  42% (12/28)        
+build	Checkout	2026-09-24T19:12:34.9425054Z remote: Compressing objects:  46% (13/28)        
+build	Checkout	2026-09-24T19:12:34.9426274Z remote: Compressing objects:  50% (14/28)        
+build	Checkout	2026-09-24T19:12:34.9427482Z remote: Compressing objects:  53% (15/28)        
+build	Checkout	2026-09-24T19:12:34.9428695Z remote: Compressing objects:  57% (16/28)        
+build	Checkout	2026-09-24T19:12:34.9429929Z remote: Compressing objects:  60% (17/28)        
+build	Checkout	2026-09-24T19:12:34.9431318Z remote: Compressing objects:  64% (18/28)        
+build	Checkout	2026-09-24T19:12:34.9432538Z remote: Compressing objects:  67% (19/28)        
+build	Checkout	2026-09-24T19:12:34.9433763Z remote: Compressing objects:  71% (20/28)        
+build	Checkout	2026-09-24T19:12:34.9434965Z remote: Compressing objects:  75% (21/28)        
+build	Checkout	2026-09-24T19:12:34.9436185Z remote: Compressing objects:  78% (22/28)        
+build	Checkout	2026-09-24T19:12:34.9437405Z remote: Compressing objects:  82% (23/28)        
+build	Checkout	2026-09-24T19:12:34.9438608Z remote: Compressing objects:  85% (24/28)        
+build	Checkout	2026-09-24T19:12:34.9439809Z remote: Compressing objects:  89% (25/28)        
+build	Checkout	2026-09-24T19:12:34.9441089Z remote: Compressing objects:  92% (26/28)        
+build	Checkout	2026-09-24T19:12:34.9442300Z remote: Compressing objects:  96% (27/28)        
+build	Checkout	2026-09-24T19:12:34.9443496Z remote: Compressing objects: 100% (28/28)        
+build	Checkout	2026-09-24T19:12:34.9444795Z remote: Compressing objects: 100% (28/28), done.        
+build	Checkout	2026-09-24T19:12:35.0356093Z remote: Total 35 (delta 2), reused 18 (delta 1), pack-reused 0 (from 0)        
+build	Checkout	2026-09-24T19:12:35.1301835Z From https://github.com/leandryu/ci-cd-final-project
+build	Checkout	2026-09-24T19:12:35.1307458Z  * [new ref]         ce0a64fa1b22b5fd9e2b96926b33a3a2455371a3 -> origin/main
+build	Checkout	2026-09-24T19:12:35.1312730Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:35.1314831Z ##[group]Determining the checkout info
+build	Checkout	2026-09-24T19:12:35.1317616Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:35.1319621Z ##[group]Checking out the ref
+build	Checkout	2026-09-24T19:12:35.1322069Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build	Checkout	2026-09-24T19:12:35.1375801Z Switched to a new branch 'main'
+build	Checkout	2026-09-24T19:12:35.1379371Z branch 'main' set up to track 'origin/main'.
+build	Checkout	2026-09-24T19:12:35.1395692Z ##[endgroup]
+build	Checkout	2026-09-24T19:12:35.1423591Z [command]/usr/bin/git log -1 --format='%H'
+build	Checkout	2026-09-24T19:12:35.1451207Z 'ce0a64fa1b22b5fd9e2b96926b33a3a2455371a3'
+build	Setup Node.js	﻿2026-09-24T19:12:35.1756259Z ##[group]Run actions/setup-node@v3
+build	Setup Node.js	2026-09-24T19:12:35.1757205Z with:
+build	Setup Node.js	2026-09-24T19:12:35.1757857Z   node-version: 20
+build	Setup Node.js	2026-09-24T19:12:35.1758590Z   always-auth: false
+build	Setup Node.js	2026-09-24T19:12:35.1759343Z   check-latest: false
+build	Setup Node.js	2026-09-24T19:12:35.1766421Z   token: ***
+build	Setup Node.js	2026-09-24T19:12:35.1767106Z ##[endgroup]
+build	Setup Node.js	2026-09-24T19:12:35.3040086Z Attempting to download 20...
+build	Setup Node.js	2026-09-24T19:12:35.3128730Z (node:2009) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Setup Node.js	2026-09-24T19:12:35.3132854Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	Setup Node.js	2026-09-24T19:12:36.3001629Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+build	Setup Node.js	2026-09-24T19:12:36.8198095Z Extracting ...
+build	Setup Node.js	2026-09-24T19:12:36.8296223Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword -C /home/runner/work/_temp/453699de-19bc-4a05-a481-aea2bfe9d26d -f /home/runner/work/_temp/9132d194-2e45-4e46-9672-066ee90a3fad
+build	Setup Node.js	2026-09-24T19:12:37.6897088Z Adding to the cache ...
+build	Setup Node.js	2026-09-24T19:12:40.0787136Z ##[group]Environment details
+build	Setup Node.js	2026-09-24T19:12:40.2605620Z node: v20.20.2
+build	Setup Node.js	2026-09-24T19:12:40.2606157Z npm: 10.8.2
+build	Setup Node.js	2026-09-24T19:12:40.2606407Z yarn: 1.22.22
+build	Setup Node.js	2026-09-24T19:12:40.2607046Z ##[endgroup]
+build	Install dependencies	﻿2026-09-24T19:12:40.2769699Z ##[group]Run npm ci
+build	Install dependencies	2026-09-24T19:12:40.2769985Z ^[[36;1mnpm ci^[[0m
+build	Install dependencies	2026-09-24T19:12:40.2980607Z shell: /usr/bin/bash -e {0}
+build	Install dependencies	2026-09-24T19:12:40.2980978Z ##[endgroup]
+build	Install dependencies	2026-09-24T19:12:42.1277130Z npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+build	Install dependencies	2026-09-24T19:12:42.5191394Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+build	Install dependencies	2026-09-24T19:12:42.6762395Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+build	Install dependencies	2026-09-24T19:12:43.1298055Z npm warn deprecated superagent@8.1.2: Please upgrade to v9.0.0+ as we have fixed a public vulnerability with formidable dependency. Note that v9.0.0+ requires Node.js v14.18.0+. See https://github.com/ladjs/superagent/pull/1800 for insight. This project is supported and maintained by the team at Forward Email @ https://forwardemail.net
+build	Install dependencies	2026-09-24T19:12:43.1925810Z npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+build	Install dependencies	2026-09-24T19:12:43.1929884Z npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+build	Install dependencies	2026-09-24T19:12:44.3228008Z npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+build	Install dependencies	2026-09-24T19:12:44.8081910Z 
+build	Install dependencies	2026-09-24T19:12:44.8092228Z added 552 packages, and audited 553 packages in 4s
+build	Install dependencies	2026-09-24T19:12:44.8092935Z 
+build	Install dependencies	2026-09-24T19:12:44.8093359Z 144 packages are looking for funding
+build	Install dependencies	2026-09-24T19:12:44.8093911Z   run `npm fund` for details
+build	Install dependencies	2026-09-24T19:12:44.8229944Z 
+build	Install dependencies	2026-09-24T19:12:44.8230951Z 15 vulnerabilities (2 low, 4 moderate, 8 high, 1 critical)
+build	Install dependencies	2026-09-24T19:12:44.8231414Z 
+build	Install dependencies	2026-09-24T19:12:44.8231812Z To address all issues, run:
+build	Install dependencies	2026-09-24T19:12:44.8232083Z   npm audit fix
+build	Install dependencies	2026-09-24T19:12:44.8232215Z 
+build	Install dependencies	2026-09-24T19:12:44.8232333Z Run `npm audit` for details.
+build	Lint with ESLint	﻿2026-09-24T19:12:44.8439885Z ##[group]Run npm run lint
+build	Lint with ESLint	2026-09-24T19:12:44.8440341Z ^[[36;1mnpm run lint^[[0m
+build	Lint with ESLint	2026-09-24T19:12:44.8500852Z shell: /usr/bin/bash -e {0}
+build	Lint with ESLint	2026-09-24T19:12:44.8501154Z ##[endgroup]
+build	Lint with ESLint	2026-09-24T19:12:44.9504206Z 
+build	Lint with ESLint	2026-09-24T19:12:44.9504980Z > counter-service@1.0.0 lint
+build	Lint with ESLint	2026-09-24T19:12:44.9505360Z > eslint src/ tests/
+build	Lint with ESLint	2026-09-24T19:12:44.9505496Z 
+build	Run unit tests with Jest	﻿2026-09-24T19:12:45.5931505Z ##[group]Run npm test
+build	Run unit tests with Jest	2026-09-24T19:12:45.5931749Z ^[[36;1mnpm test^[[0m
+build	Run unit tests with Jest	2026-09-24T19:12:45.5987713Z shell: /usr/bin/bash -e {0}
+build	Run unit tests with Jest	2026-09-24T19:12:45.5987945Z ##[endgroup]
+build	Run unit tests with Jest	2026-09-24T19:12:45.7208146Z 
+build	Run unit tests with Jest	2026-09-24T19:12:45.7208834Z > counter-service@1.0.0 test
+build	Run unit tests with Jest	2026-09-24T19:12:45.7209246Z > jest
+build	Run unit tests with Jest	2026-09-24T19:12:45.7209396Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.4700366Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.4700851Z     [2026-09-24T19:12:46.456Z] [INFO] Logging handler established
+build	Run unit tests with Jest	2026-09-24T19:12:46.4701070Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.4701234Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.4701432Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.4967506Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.4968169Z     [2026-09-24T19:12:46.488Z] [INFO] Request for Base URL
+build	Run unit tests with Jest	2026-09-24T19:12:46.4968510Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.4972462Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.4973454Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.4974086Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET / HTTP/1.1" 200 104 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5055434Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /health HTTP/1.1" 200 15 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5107110Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5107549Z     [2026-09-24T19:12:46.507Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5107887Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5108070Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5108266Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5112957Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5159774Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5160346Z     [2026-09-24T19:12:46.513Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5160690Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5160866Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5161097Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5163795Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5203492Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5203917Z     [2026-09-24T19:12:46.517Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5204263Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5204422Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5204608Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5208540Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 409 72 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5249867Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5250372Z     [2026-09-24T19:12:46.522Z] [INFO] Request to list all counters...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5250688Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5250890Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5251067Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5254800Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /counters HTTP/1.1" 200 2 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5302136Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5302588Z     [2026-09-24T19:12:46.527Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5302928Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5303088Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5303294Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5306064Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5341870Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5342548Z     [2026-09-24T19:12:46.531Z] [INFO] Request to list all counters...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5342908Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5343163Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5343466Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5346769Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /counters HTTP/1.1" 200 28 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5392000Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5392486Z     [2026-09-24T19:12:46.536Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5392837Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5393487Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5393796Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5398295Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5438091Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5439149Z     [2026-09-24T19:12:46.541Z] [INFO] Request to Read counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5439687Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5440403Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5440872Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5444240Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /counters/foo HTTP/1.1" 200 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5487662Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5488324Z     [2026-09-24T19:12:46.546Z] [INFO] Request to Read counter: nonexistent...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5489020Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5489420Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5489960Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5492595Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /counters/nonexistent HTTP/1.1" 404 81 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5533280Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5533758Z     [2026-09-24T19:12:46.551Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5534080Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5534241Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5534476Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5537136Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5572239Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5572650Z     [2026-09-24T19:12:46.554Z] [INFO] Request to Update counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5572971Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5573159Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5573355Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5576613Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "PUT /counters/foo HTTP/1.1" 200 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5648423Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5648971Z     [2026-09-24T19:12:46.562Z] [INFO] Request to Update counter: nonexistent...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5649245Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5649408Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5649598Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5652857Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "PUT /counters/nonexistent HTTP/1.1" 404 81 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5698436Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5698784Z     [2026-09-24T19:12:46.567Z] [INFO] Request to Create counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5699000Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5699152Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5699335Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5703270Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "POST /counters/foo HTTP/1.1" 201 26 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5760664Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5761185Z     [2026-09-24T19:12:46.571Z] [INFO] Request to Delete counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5761538Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5761788Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5762097Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5762643Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "DELETE /counters/foo HTTP/1.1" 204 - "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5788577Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5789379Z     [2026-09-24T19:12:46.576Z] [INFO] Request to Delete counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5789759Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5790000Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5790452Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5791789Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "DELETE /counters/foo HTTP/1.1" 204 - "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5832174Z   console.log
+build	Run unit tests with Jest	2026-09-24T19:12:46.5832615Z     [2026-09-24T19:12:46.580Z] [INFO] Request to Read counter: foo...
+build	Run unit tests with Jest	2026-09-24T19:12:46.5832931Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5833161Z       at Object.log [as info] (src/middleware/logger.js:6:15)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5833464Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5837437Z ::ffff:127.0.0.1 - - [24/Sep/2026:19:12:46 +0000] "GET /counters/foo HTTP/1.1" 404 73 "-" "-"
+build	Run unit tests with Jest	2026-09-24T19:12:46.5865680Z PASS tests/counters.test.js
+build	Run unit tests with Jest	2026-09-24T19:12:46.5867744Z   Counter API Service
+build	Run unit tests with Jest	2026-09-24T19:12:46.5868038Z     GET /
+build	Run unit tests with Jest	2026-09-24T19:12:46.5870234Z       ✓ should return service information (31 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5870626Z     GET /health
+build	Run unit tests with Jest	2026-09-24T19:12:46.5871009Z       ✓ should return health status (3 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5871609Z     POST /counters/:name
+build	Run unit tests with Jest	2026-09-24T19:12:46.5872005Z       ✓ should create a new counter (5 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5872483Z       ✓ should not create a duplicate counter (9 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5872850Z     GET /counters
+build	Run unit tests with Jest	2026-09-24T19:12:46.5873188Z       ✓ should list all counters (14 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5873481Z     GET /counters/:name
+build	Run unit tests with Jest	2026-09-24T19:12:46.5873736Z       ✓ should read a specific counter (10 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5874062Z       ✓ should return 404 for non-existent counter (4 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5874320Z     PUT /counters/:name
+build	Run unit tests with Jest	2026-09-24T19:12:46.5874580Z       ✓ should update (increment) a counter (9 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5874883Z       ✓ should not update a missing counter (7 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5875132Z     DELETE /counters/:name
+build	Run unit tests with Jest	2026-09-24T19:12:46.5875381Z       ✓ should delete a counter (18 ms)
+build	Run unit tests with Jest	2026-09-24T19:12:46.5875527Z 
+build	Run unit tests with Jest	2026-09-24T19:12:46.5889152Z Test Suites: 1 passed, 1 total
+build	Run unit tests with Jest	2026-09-24T19:12:46.5889488Z Tests:       10 passed, 10 total
+build	Run unit tests with Jest	2026-09-24T19:12:46.5889736Z Snapshots:   0 total
+build	Run unit tests with Jest	2026-09-24T19:12:46.5889921Z Time:        0.578 s
+build	Run unit tests with Jest	2026-09-24T19:12:46.5890104Z Ran all test suites.
+build	Post Setup Node.js	﻿2026-09-24T19:12:46.7151549Z Post job cleanup.
+build	Post Setup Node.js	2026-09-24T19:12:46.8140758Z (node:2131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Post Setup Node.js	2026-09-24T19:12:46.8141455Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	Post Checkout	﻿2026-09-24T19:12:46.8288689Z Post job cleanup.
+build	Post Checkout	2026-09-24T19:12:46.8925659Z (node:2139) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Post Checkout	2026-09-24T19:12:46.8926317Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	Post Checkout	2026-09-24T19:12:46.8948892Z [command]/usr/bin/git version
+build	Post Checkout	2026-09-24T19:12:46.8979636Z git version 2.55.0
+build	Post Checkout	2026-09-24T19:12:46.9009160Z Temporarily overriding HOME='/home/runner/work/_temp/2ea8a680-c0f6-4c9a-809e-3a3a7ca47d37' before making global git config changes
+build	Post Checkout	2026-09-24T19:12:46.9010909Z Adding repository directory to the temporary git global config as a safe directory
+build	Post Checkout	2026-09-24T19:12:46.9013262Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ci-cd-final-project/ci-cd-final-project
+build	Post Checkout	2026-09-24T19:12:46.9221254Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	Post Checkout	2026-09-24T19:12:46.9241087Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	Post Checkout	2026-09-24T19:12:46.9434356Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	Post Checkout	2026-09-24T19:12:46.9732916Z http.https://github.com/.extraheader
+build	Post Checkout	2026-09-24T19:12:46.9742245Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	Post Checkout	2026-09-24T19:12:47.0211038Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	Complete job	﻿2026-09-24T19:12:47.0544830Z Cleaning up orphan processes
+build	Complete job	2026-09-24T19:12:47.0787170Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v3, actions/setup-node@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
